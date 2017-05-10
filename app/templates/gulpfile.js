@@ -21,7 +21,7 @@ gulp.task('styles', () => {<% if (includeSass) { %>
       includePaths: ['.']
     }).on('error', $.sass.logError))<% } else { %>
   return gulp.src('app/styles/*.css')
-    .pipe($.if(dev, $.sourcemaps.init()))<% } %>
+    .pipe($.if(dev, $.sourcemaps.init('.')))<% } %>
     .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
     .pipe($.if(dev, $.sourcemaps.write()))
     .pipe(gulp.dest('.tmp/styles'))
